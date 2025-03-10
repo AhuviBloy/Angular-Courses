@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  @if(isLoggedIn()){
+    <app-profile></app-profile>
+  }
+  @else {
+    <h1>Courses Platform</h1>
+  }
+  <span class="spacer"></span>
+  
+    @if (!isLoggedIn()) {
+      <button mat-button (click)="openLoginDialog('0ms', '0ms')">Login</button>
+      <button mat-button (click)="openRegisterDialog('0ms', '0ms')">Register</button>
+    }
+    @else {
+      <button mat-button routerLink="/courses-online">Courses</button>
+      <button mat-button routerLink="/my-courses"> MyCourses</button>
+      @if(hasEditPermissions()){
+        <button mat-button routerLink="/edit-courses">EditCourses</button>
+      }
+      <button mat-button (click)="logout()">Logout</button>
+    }
+</mat-toolbar>

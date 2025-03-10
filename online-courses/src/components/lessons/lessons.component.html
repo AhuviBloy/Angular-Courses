@@ -1,0 +1,32 @@
+@if(lessons.length > 0) {
+  <!-- <h3 style="padding-left: 10px;">Lessons for Course ID: {{ courseId }}</h3> -->
+  <mat-list>
+    @for(lesson of lessons; track lesson.id) {
+      <mat-list-item style="display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ddd;">
+        
+        <div style="display: flex; justify-content: space-between; flex: 1; align-items: center;">
+          <div style="flex: 1;">
+            <h4 style="margin: 0;">{{ lesson.title }}</h4>
+            <p style="margin: 5px 0 0;">{{ lesson.description }}</p>
+          </div>
+
+          @if(role==="manager" || role === "teacher"){
+           <div>
+            <button mat-icon-button [matMenuTriggerFor]="lessonMenu" style="padding: 0;">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+          }
+         
+        </div>
+      
+        <mat-menu #lessonMenu="matMenu">
+          <button mat-menu-item (click)="openEditLessonDialog(lesson)">Update</button>
+          <button mat-menu-item (click)="deleteLesson(lesson.id)">Delete</button>
+        </mat-menu>
+      </mat-list-item>
+    }
+  </mat-list>
+} @else {
+  <p>No lessons found for this course.</p>
+}

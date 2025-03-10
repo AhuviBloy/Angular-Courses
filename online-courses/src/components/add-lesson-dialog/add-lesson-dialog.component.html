@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ data.lesson ? 'Edit Lesson' : 'Add Lesson' }}</h2>
+<mat-dialog-content style="border-radius: 0; overflow: hidden; padding: 20px; ">
+  <form [formGroup]="lessonForm" (ngSubmit)="onSubmit()">
+
+    @if(lessonForm.get('title')?.errors?.['required'] && lessonForm.invalid && (lessonForm.dirty || lessonForm.touched)){
+        <mat-error>Title is required.</mat-error>}
+    <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Enter title" required>
+      </mat-form-field>
+    
+   
+          @if(lessonForm.get('content')?.errors?.['required'] && lessonForm.invalid && (lessonForm.dirty || lessonForm.touched)){
+            <mat-error>Description is required.</mat-error>}
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="content" placeholder="Enter Description" required>
+              </mat-form-field>
+
+    <div style="display: flex; justify-content: space-between;">
+      <button mat-button type="submit" [disabled]="lessonForm.invalid">{{ data.lesson ? 'Update Lesson' : 'Add Lesson' }}</button>
+      <button mat-button mat-dialog-close (click)="onCancel()" >Cancel</button>  
+      </div>
+  </form>
+</mat-dialog-content>
+
