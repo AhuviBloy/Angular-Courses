@@ -31,7 +31,7 @@
 
 //       this.userService.setUserDetails().subscribe(
 //         (user: User) => {
-//           sessionStorage.setItem('user', JSON.stringify(user));
+//           null //sessionStorage.setItem('user', JSON.stringify(user));
   
 //         },
 //         (error) => {
