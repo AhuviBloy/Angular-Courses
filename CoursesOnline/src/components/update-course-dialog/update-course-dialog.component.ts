@@ -27,8 +27,8 @@ import { UpdateCourse } from '../../models/course';
   styleUrls: ['./update-course-dialog.component.css'],
 })
 export class UpdateCourseDialogComponent {
-  courseTitle: string = '';
-  courseDescription: string = '';
+  title: string = '';
+  description: string = '';
   teacherId: number = 0;
   courseId: number = 0;
 
@@ -37,16 +37,16 @@ export class UpdateCourseDialogComponent {
     private courseService: CoursesService,
     @Inject(MAT_DIALOG_DATA) public data: any // קבלת נתוני הקורס
   ) {
-    this.courseTitle = data.course ? data.course.title : ''; // ערך ברירת מחדל
-    this.courseDescription = data.course ? data.course.description : ''; // ערך ברירת מחדל
+    this.title = data.course ? data.course.title : ''; // ערך ברירת מחדל
+    this.description = data.course ? data.course.description : ''; // ערך ברירת מחדל
     this.teacherId = data.course ? data.course.teacherId : 0; // ערך ברירת מחדל
     this.courseId = data.course ? data.course.id : 0; // ערך ברירת מחדל
   }
 
   onSubmit(): void {
     const courseData: UpdateCourse = {
-      title: this.courseTitle,
-      description: this.courseDescription,
+      title: this.title,
+      description: this.description,
       teacherId: this.teacherId,
     };
     this.dialogRef.close(courseData);

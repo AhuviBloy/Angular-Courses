@@ -3,11 +3,11 @@
   <form (ngSubmit)="onSubmit()" style="display:flex; flex-direction: column; gap: 20px;">
     <mat-form-field appearance="outline">
       <mat-label>Course Title</mat-label>
-      <input matInput placeholder="title" type="text" [(ngModel)]="courseTitle" name="title" required>
+      <input matInput placeholder="title" type="text" [(ngModel)]="title" name="title" required>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Course Description</mat-label>
-      <input matInput placeholder="description" type="text" [(ngModel)]="courseDescription" name="description" required>
+      <input matInput placeholder="description" type="text" [(ngModel)]="description" name="description" required>
     </mat-form-field>
     <div style="display: flex; justify-content: space-between;">
       <button mat-button type="submit">Save</button>

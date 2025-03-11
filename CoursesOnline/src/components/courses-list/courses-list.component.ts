@@ -5,12 +5,9 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { LessonsComponent } from "../lessons/lessons.component";
-import { AddLessonDialogComponent } from '../add-lesson-dialog/add-lesson-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { LessonService } from '../../services/lessons/lessons.service';
-import { AddCourseDialogComponent } from '../add-course-dialog/add-course-dialog.component';
-import { UpdateCourseDialogComponent } from '../update-course-dialog/update-course-dialog.component';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({

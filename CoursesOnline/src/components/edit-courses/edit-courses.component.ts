@@ -29,7 +29,7 @@ import { Roles } from '../../enum/roles';
 })
 export class EditCoursesComponent implements OnInit {
   courses: Course[] = [];
-  tempCourse: Course = { id: -1, title: '', description: '' };
+  tempCourse: Course = { id: -1, title: '', description: '',teacherId: -1 };
   showLessons: number | null = null;
   role: Roles | null = null;
   constructor(
