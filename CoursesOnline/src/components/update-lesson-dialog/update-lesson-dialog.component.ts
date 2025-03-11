@@ -1,5 +1,5 @@
 import { CoursesService } from '../../services/courses/courses.service';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -30,7 +30,7 @@ import { LessonService } from '../../services/lessons/lessons.service';
 export class UpdateLessonDialogComponent {
   title: string = '';
   content: string = '';
-  courseId: number = 0;
+  @Input() courseId: number | null = null;
 
   constructor(
     public dialogRef: MatDialogRef<UpdateLessonDialogComponent>,
@@ -39,14 +39,14 @@ export class UpdateLessonDialogComponent {
   ) {
     this.title = data.lesson ? data.lesson.title : ''; // ערך ברירת מחדל
     this.content = data.lesson ? data.lesson.content : ''; // ערך ברירת מחדל
-    this.courseId = data.lesson ? data.lesson.id : 0; // ערך ברירת מחדל
+    this.courseId = data.courseId; // קבלת courseId מהנתונים
   }
 
   onSubmit(): void {
     const courseData: any = {
       title: this.title,
-      description: this.content,
-      teacherId: this.courseId,
+      content: this.content,
+      courseId: this.courseId,
     };
     this.dialogRef.close(courseData);
   }

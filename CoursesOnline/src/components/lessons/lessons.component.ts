@@ -56,7 +56,9 @@ export class LessonsComponent implements OnInit {
 
   openEditLessonDialog(lessonData: any): void {
       const dialogRef = this.dialog.open(UpdateLessonDialogComponent, {
-        data: { lesson: lessonData }, 
+        data: { lesson: lessonData,
+          courseId: lessonData.courseId
+         }, 
       });
   
       dialogRef.afterClosed().subscribe((result) => {
