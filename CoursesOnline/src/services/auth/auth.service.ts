@@ -16,11 +16,11 @@ export class AuthService {
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   getUserId(): number | null {
-    const userJson = sessionStorage.getItem('user'); // שליפת ה-JSON מה-session storage
+    const userJson = sessionStorage.getItem('user'); 
   
     if (userJson) {
-      const user = JSON.parse(userJson); // המרת ה-JSON לאובייקט
-      const userId = user.id; // שליפת ה-ID של המשתמש
+      const user = JSON.parse(userJson); 
+      const userId = user.id; 
       return userId;
   }
   return null;
@@ -32,16 +32,17 @@ export class AuthService {
     return false;
   }
 
-  // getToken(): any {
-  //   return sessionStorage.getItem('authToken');
-  // }
-  
-  getToken(): string | null {
-    if (isPlatformBrowser(this.platformId)) {
-      return sessionStorage.getItem('authToken');
-    }
-    return null; // או טיפול אחר אם לא בדפדפן
+  getToken(): any {
+    return sessionStorage.getItem('authToken');
   }
+  
+  
+  // getToken(): string | null {
+  //   if (isPlatformBrowser(this.platformId)) {
+  //     return sessionStorage.getItem('authToken');
+  //   }
+  //   return null; // או טיפול אחר אם לא בדפדפן
+  // }
 
 
   updateToken(response: any): void {
@@ -92,6 +93,6 @@ export class AuthService {
   }
 
   logout(): void {
-    null //sessionStorage.removeItem('authToken');
+    sessionStorage.removeItem('authToken');
   }
 }

@@ -35,12 +35,12 @@ export class UpdateCourseDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<UpdateCourseDialogComponent>,
     private courseService: CoursesService,
-    @Inject(MAT_DIALOG_DATA) public data: any // קבלת נתוני הקורס
+    @Inject(MAT_DIALOG_DATA) public data: any 
   ) {
-    this.title = data.course ? data.course.title : ''; // ערך ברירת מחדל
-    this.description = data.course ? data.course.description : ''; // ערך ברירת מחדל
-    this.teacherId = data.course ? data.course.teacherId : 0; // ערך ברירת מחדל
-    this.courseId = data.course ? data.course.id : 0; // ערך ברירת מחדל
+    this.title = data.course ? data.course.title : ''; 
+    this.description = data.course ? data.course.description : ''; 
+    this.teacherId = data.course ? data.course.teacherId : 0; 
+    this.courseId = data.course ? data.course.id : 0; 
   }
 
   onSubmit(): void {

@@ -47,7 +47,6 @@ export class EditCoursesComponent implements OnInit {
           this.courses = data;
         },
         (error) => {
-          // console.error('Error fetching courses:', error);
           alert('Error fetching courses');
         }
       );
@@ -60,10 +59,9 @@ export class EditCoursesComponent implements OnInit {
   }
 
   openAddLessonDialog(courseId: number): void {
-    // קבלת courseId כפרמטר
     const dialogRef = this.dialog.open(AddLessonDialogComponent, {
       width: '400px',
-      data: { courseId }, // העברת ה-courseId לדיאלוג
+      data: { courseId }, 
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -75,9 +73,7 @@ export class EditCoursesComponent implements OnInit {
             this.showLessonsForCourse(courseId);
           },
           error: (error) => {
-            // console.error('Error adding lesson:', error);
             alert('Error adding lesson');
-            // טיפול בשגיאות
           },
         });
       }
@@ -86,7 +82,7 @@ export class EditCoursesComponent implements OnInit {
 
   openAddCourseDialog(courseData: Course) {
     const dialogRef = this.dialog.open(AddCourseDialogComponent, {
-      data: { course: courseData }, // ודא שאתה מעביר את הנתונים כראוי
+      data: { course: courseData }, 
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -96,7 +92,6 @@ export class EditCoursesComponent implements OnInit {
             console.log('Course updated successfully:', response);
           },
           error: (error) => {
-            // console.error('Error updating course:', error);
             alert('Error updating course');
           },
         });
@@ -106,7 +101,7 @@ export class EditCoursesComponent implements OnInit {
 
   openEditCourseDialog(courseData: Course): void {
     const dialogRef = this.dialog.open(UpdateCourseDialogComponent, {
-      data: { course: courseData }, // ודא שאתה מעביר את הנתונים כראוי
+      data: { course: courseData }, 
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -114,7 +109,6 @@ export class EditCoursesComponent implements OnInit {
         this.courseService.updateCourse(courseData.id, result).subscribe({
           next: (response) => {
             console.log('Course updated successfully:', response);
-            // עדכון הקורס ברשימה המקומית
             const index = this.courses.findIndex(
               (course) => course.id === courseData.id
             );
@@ -123,7 +117,6 @@ export class EditCoursesComponent implements OnInit {
             }
           },
           error: (error) => {
-            // console.error('Error updating course:', error);
             alert('Error updating course');
           },
         });
@@ -135,11 +128,9 @@ export class EditCoursesComponent implements OnInit {
     this.courseService.deleteCourse(courseId).subscribe({
       next: (response) => {
         console.log('Course deleted successfully:', response);
-        // מחיקת הקורס מהרשימה המקומית
         this.courses = this.courses.filter((course) => course.id !== courseId);
       },
       error: (error) => {
-        // console.error('Error deleting course:', error);
         alert('Error deleting course');
       },
     });

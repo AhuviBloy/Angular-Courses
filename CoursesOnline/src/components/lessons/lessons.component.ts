@@ -29,14 +29,13 @@ export class LessonsComponent implements OnInit {
     if (this.courseId) {
       this.loadLessons();
     } else {
-      // console.error('Course ID is null');
       alert('Course ID is null');
     }
-    const userJson = sessionStorage.getItem('user'); // שליפת ה-JSON מה-session storage
+    const userJson = sessionStorage.getItem('user'); 
   
     if (userJson) {
-      const user = JSON.parse(userJson); // המרת ה-JSON לאובייקט
-      this.role = user.role; // שליפת ה-ID של המשתמש  }
+      const user = JSON.parse(userJson); 
+      this.role = user.role; 
       }
     }
 
@@ -47,7 +46,6 @@ export class LessonsComponent implements OnInit {
           this.lessons = lessons;
         },
         (error) => {
-          // console.error('Error fetching lessons:', error);
           alert('Error fetching lessons');
         }
       );
@@ -74,7 +72,6 @@ export class LessonsComponent implements OnInit {
               }
             },
             error: (error) => {
-              // console.error('Error updating course:', error);
               alert('Error updating course');
             },
           });
@@ -89,7 +86,6 @@ export class LessonsComponent implements OnInit {
           this.loadLessons(); 
         },
         (error) => {
-          // console.error('Error deleting lesson:', error);
           alert('Error deleting lesson');
         }
       );

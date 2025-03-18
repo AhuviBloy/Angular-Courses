@@ -47,15 +47,12 @@ export class RegisterDialogComponent {
   
         },
         (error) => {
-          // console.error('Failed to get user details', error);
           alert('Failed to get user details');
         }
       );
 
       this.close(); 
-      // this.dialogRef.close();
     }, error => {
-      // console.error('Login failed', error);   
       alert('Register failed');
     });
   }

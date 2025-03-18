@@ -21,7 +21,6 @@ export class ProfileComponent implements OnInit {
 
       },
       (error) => {
-        // console.error('Failed to get user details', error);
         alert('Failed to get user details');
       }
     );
